@@ -1,0 +1,19 @@
+<div class="header-container">
+  <div class="logo-container">
+    <a (click)="toggleSidebar()" href="#" class="sidebar-toggle">
+      <nb-icon icon="menu-2-outline"></nb-icon>
+    </a>
+    <a class="logo" href="#" (click)="navigateHome()">DAM-<span>Proiect</span></a>
+  </div>
+</div>
+
+<div class="header-container">
+  <nb-actions size="small">
+
+    <nb-action class="control-item">
+    <nb-select fullWidth placeholder="User" [ngModel]="selectedUser" (ngModelChange)="onSelectUser($event)">
+      <nb-option *ngFor="let item of users$ | async" [value]="item">{{item.userRole}}</nb-option>
+    </nb-select>
+    </nb-action>
+  </nb-actions>
+</div>

@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-md-12">
+    <nb-card>
+      <nb-card-header>Add Client</nb-card-header>
+      <nb-card-body>
+        <form (ngSubmit)="onSave($event)" >
+          <div class="form-group">
+            <label for="name" class="label">Name</label>
+            <input type="text" nbInput fullWidth id="name" placeholder="Name" required [(ngModel)]="name" [ngModelOptions]="{standalone: true}">
+          </div>
+          <div class="form-group">
+            <label for="email" class="label">Email</label>
+            <input type="email" nbInput fullWidth id="email" placeholder="Email" required [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
+          </div>
+          <div class="form-group">
+            <label for="domain" class="label">Domain</label>
+            <input type="text" nbInput fullWidth id="domain" placeholder="Domain" required [(ngModel)]="domain" [ngModelOptions]="{standalone: true}">
+          </div>
+          <div class="form-group">
+            <label for="phone" class="label">Phone</label>
+            <input type="text" nbInput fullWidth id="phone" placeholder="phone" required [(ngModel)]="phone" [ngModelOptions]="{standalone: true}">
+          </div>
+          <div class="form-group">
+            <label for="contracts" class="label">Contracts</label>
+            <nb-select fullWidth placeholder="Contracts List" [(ngModel)]="selectedContract" [ngModelOptions]="{standalone: true}" required id="contracts">
+              <nb-option *ngFor="let item of contractsOptions$ | async" [value]="item">{{item.name}}</nb-option>
+            </nb-select>
+          </div>
+          <div class="text-right">
+            <button type="button" nbButton status="infor" (click)="onBack()">Back</button> &nbsp;
+            <button type="submit" nbButton status="info">Add</button>
+          </div>
+        </form>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-md-12">
+    <nb-card>
+      <nb-card-header>Add Task</nb-card-header>
+      <nb-card-body>
+        <form (ngSubmit)="onSave($event)" >
+          <div class="form-group">
+            <label for="name" class="label">Name</label>
+            <input type="text" nbInput fullWidth id="name" placeholder="Task name" required [(ngModel)]="taskName" [ngModelOptions]="{standalone: true}">
+          </div>
+          <div class="form-group">
+            <label for="contracts" class="label">Contracts</label>
+            <nb-select fullWidth placeholder="Contracts List" [(ngModel)]="selectedContract" [ngModelOptions]="{standalone: true}" required id="contracts">
+              <nb-option *ngFor="let item of contractsOptions$ | async" [value]="item">{{item.name}}</nb-option>
+            </nb-select>
+          </div>
+          <div class="form-group">
+            <label for="users" class="label">Users</label>
+            <nb-select fullWidth placeholder="Users List" [(ngModel)]="selectedUser" [ngModelOptions]="{standalone: true}" required id="users">
+              <nb-option *ngFor="let item of usersOptions$ | async" [value]="item">{{item.name}}</nb-option>
+            </nb-select>
+          </div>
+          <div class="form-group">
+            <label for="status" class="label">Status</label>
+            <nb-select fullWidth placeholder="Status" [(ngModel)]="selectedStatus" [ngModelOptions]="{standalone: true}" required id="status">
+              <nb-option *ngFor="let item of statusOptions" [value]="item">{{item}}</nb-option>
+            </nb-select>
+          </div>
+          <div class="text-right">
+            <button type="button" nbButton status="infor" (click)="onBack()">Back</button> &nbsp;
+            <button type="submit" nbButton status="info">Add</button>
+          </div>
+        </form>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
